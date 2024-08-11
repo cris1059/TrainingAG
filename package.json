@@ -1,0 +1,24 @@
+{
+  "name": "geneticalgorithms",
+  "version": "1.0.0",
+  "description": "desarrollo un programa basado en Algoritmos Genéticos con el objetivo de investigar y encontrar el miembro o población más adaptada dentro de un conjunto de posibles soluciones. ",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cris1059/TrainingAG.git"
+  },
+  "author": "cris1059",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cris1059/TrainingAG/issues"
+  },
+  "homepage": "https://github.com/cris1059/TrainingAG#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }, "scripts": {
+  "start": "lite-server"
+}
+}
