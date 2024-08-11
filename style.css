@@ -1,0 +1,104 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+main{
+    display: flex;
+    background-color: antiquewhite;
+    flex-direction: column;
+    padding: 10px;
+    max-width: 80%;
+    min-width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #000;
+}
+
+
+
+.min{
+    width: 30px;
+}
+
+.fx label{
+    margin-left: 10px;
+    margin-right: 10px;
+} 
+
+.encuadre{
+    display: flex;
+    padding: 10px;
+}
+
+.encuadre_cuadro{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 1;
+}
+
+
+input[type="file"]{
+    display: none;
+}
+
+.file_input{
+    font-size: .8rem;
+    padding: 5px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+}
+
+.file_input:hover{
+    padding: 5px;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+}
+
+button{
+    font-size: 1.2rem;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+button:hover{
+    font-size: 1.2rem;
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.fx{
+    margin-left: auto;
+}
+
+.enc_f{
+    flex-direction: column;
+}
+
+#training{
+    margin: auto;
+    margin-top: 20px;
+    width: 200px;
+    display: none;
+}
+
+#datosllenos{
+    margin: auto;
+}
+
+table{
+    margin: auto;
+    background-color: #fff;
+    border: 2px solid #000;
+    display: none;
+}
+
+td {
+    border: 2px solid #000;
+    padding: 2px 5px;
+}

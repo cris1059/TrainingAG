@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Algoritmos Geneticos</title>
+</head>
+<body>
+    <main>
+        <div class="encuadre">
+            <div class="encuadre__cuadro">
+                <label for="">Binario
+                    <input id="input_binary" class="entrada" type="text" placeholder="10101010101">
+                </label>
+                <button id="add_binary">Add</button>
+                <label class="file_input" for="entrada_file">Seleccionar Archivo
+                    <input id="entrada_file" type="file">
+                </label>
+            </div>
+            <div class="encuadre__cuadro fx">
+                <label>Min
+                    <input id="min" class="entrada min" type="text" placeholder="10">
+                </label>
+                <label>Max
+                    <input id="max" class="entrada min" type="text" placeholder="50">
+                </label>
+                <button id="minmax">Add</button>
+            </div>
+            <div class="encuadre__cuadro fx">
+                <label>f(x)
+                    <input id="funcion" class="entrada" type="text" placeholder="2*x+3*x">
+                </label>
+                <button id="addfuncion">Add</button>
+            </div>
+        </div>
+        <div class="encuadre enc_f">
+            <label id="datosllenos"></label>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Binario</td>
+                        <td>Decimal</td>
+                        <td>Real</td>
+                        <td>Adaptado</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+                
+            </table>
+            <button id="training">Entrenar</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
