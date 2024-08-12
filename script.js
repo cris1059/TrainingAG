@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', listen);
 
 let lleno = document.getElementById('datosllenos');
-let binarios = [], funcion = "", min = 0, max = 0, minAdaptado = 0, maxAdaptado = 0;
+let binarios = [], real = [], adaptado = [];
+let funcion = "", min = 0, max = 0, minAdaptado = 0, maxAdaptado = 0;
 
 function listen() {
 
@@ -30,11 +31,12 @@ function addBinary() {
         binarios.push(binario);
         let dec = binarioADecimal(binario);
         let tbody = document.querySelector('tbody');
+        let r = calculateReal(dec, binario);
         tbody.innerHTML += `
                         <tr>
                             <td>${binario}</td>
                             <td>${dec}</td>
-                            <td></td>
+                            <td>${r}</td>
                             <td></td>
                         </tr>`}else{
                             alert("Ingresa un Dato Binario")
@@ -92,4 +94,8 @@ function condicion() {
         let train = document.getElementById('training');
         train.style.display = 'block';
     }
+}
+
+function calculateReal(dec, binario) {
+    return min+dec*((max-min)/((2 ** binario.length)-1));
 }
