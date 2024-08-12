@@ -21,7 +21,7 @@ function clicks(event) {
 
 function addBinary() {
     
-    if(document.getElementById('input_binary').value != ''){    
+    if(document.getElementById('input_binary').value != '' && funcion != ''){    
         if(binarios.length == 0){
             let tabla = document.querySelector('table');
             tabla.style.display = 'block';
@@ -32,14 +32,15 @@ function addBinary() {
         let dec = binarioADecimal(binario);
         let tbody = document.querySelector('tbody');
         let r = calculateReal(dec, binario);
+        let a = calculateAdaptad(r);
         tbody.innerHTML += `
                         <tr>
                             <td>${binario}</td>
                             <td>${dec}</td>
                             <td>${r}</td>
-                            <td></td>
-                        </tr>`}else{
-                            alert("Ingresa un Dato Binario")
+                            <td>${a}</td>
+                        </tr>`} else{
+                            alert("Ingresa un Dato Binario o verifica si ya ingresaste la funcion f(x)")
                         }
     
     condicion();
@@ -62,10 +63,13 @@ function addminmax(){
 
 function addfuncion() {
     funcion = document.getElementById("funcion").value;
-    lleno.textContent +=`Funcion= ${funcion};`;
+    if(funcion != ''){
+        lleno.textContent +=`Funcion= ${funcion};`;
 
-    condicion();
-    minmaxadaptado();
+        condicion();
+        minmaxadaptado();} else{
+            alert("Ingresa Una funcion valida");
+        }
 }
 
 function minmaxadaptado() {
@@ -77,6 +81,7 @@ function minmaxadaptado() {
 }
 
 function fx(x){
+    
     let sustituida = funcion.replace(/x/g, x), resultado;
     try{
         resultado = eval(sustituida);
@@ -99,3 +104,6 @@ function condicion() {
 function calculateReal(dec, binario) {
     return min+dec*((max-min)/((2 ** binario.length)-1));
 }
+
+function calculateAdaptad(x) {
+return fx(x);}
