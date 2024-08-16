@@ -16,11 +16,13 @@ function clicks(event) {
     if(event.target && event.target.id == 'add_binary') addBinary();
     if(event.target && event.target.id == 'minmax') addminmax();
     if(event.target && event.target.id == 'addfuncion') addfuncion();
+    if(event.target && event.target.id == 'entrada_file') loadFile();
     
 }
 
 function addBinary() {
-    
+    const fileInput = document.getElementById('entrada_file');
+    const file = fileInput.files[0];
     if(document.getElementById('input_binary').value != '' && funcion != ''){    
         if(binarios.length == 0){
             let tabla = document.querySelector('table');
@@ -39,9 +41,15 @@ function addBinary() {
                             <td>${dec}</td>
                             <td>${r}</td>
                             <td>${a}</td>
-                        </tr>`} else{
+                        </tr>`;
+                    } else if(file != undefined){
+
+                        loadFile(file);
+                        incrustado();
+                        
+                    } else{
                             alert("Ingresa un Dato Binario o verifica si ya ingresaste la funcion f(x)")
-                        }
+                    }
     
     condicion();
 }
@@ -107,3 +115,40 @@ function calculateReal(dec, binario) {
 
 function calculateAdaptad(x) {
 return fx(x);}
+
+function loadFile(file) {
+    
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const content = e.target.result;
+            binarios = content.split('\n').map(row => row.split(','));
+            console.log(binarios); 
+            let seleccion = document.getElementById('file_inputid');
+            seleccion.textContent = 'Cargado';
+            for (let i = 0; i < binarios.length; i++) {
+                let binario = binarios[i];
+                console.log(binario);
+                let dec = binarioADecimal(binario);
+                let tbody = document.querySelector('tbody');
+                let r = calculateReal(dec, binario);
+                let a = calculateAdaptad(r);
+                tbody.innerHTML += `
+            <tr>
+                <td>${binario}</td>
+                <td>${dec}</td>
+                <td>${r}</td>
+                <td>${a}</td>
+            </tr>`;
+                
+            }
+            
+
+        };
+        reader.readAsText(file);
+    } 
+}
+
+function incrustado() {
+    
+}
