@@ -108,7 +108,16 @@ td {
     padding: 2px 5px;
 }
 
+.window{
+    background-color: #000a;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+}
+
 .instruction{
+    background-color: #fff;
     margin: auto;
     margin-top: 10px;
     padding: 15px;
@@ -116,3 +125,4 @@ td {
     border-radius: 5px;
     box-shadow: 0 0 10px #000;
 }
+

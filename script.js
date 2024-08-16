@@ -70,13 +70,17 @@ function addminmax(){
 }
 
 function addfuncion() {
-    funcion = document.getElementById("funcion").value;
-    if(funcion != ''){
-        lleno.textContent +=`Funcion= ${funcion};`;
+    if(max != 0){
+        funcion = document.getElementById("funcion").value;
+        if(funcion != ''){
+            lleno.textContent +=`Funcion= ${funcion};`;
 
-        condicion();
-        minmaxadaptado();} else{
-            alert("Ingresa Una funcion valida");
+            condicion();
+            minmaxadaptado();} else{
+                alert("Ingresa Una funcion valida");
+            }
+        } else{
+            alert("Llena primero el MIN y MAX")
         }
 }
 
