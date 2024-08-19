@@ -1,0 +1,42 @@
+#primerdiv{
+
+    background-color: aqua;
+    flex: 25px;
+}
+#titulo{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 3rem;
+}
+#listacontenido{
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    gap: 100px;
+}
+#lista_boton_seleccion, #lista_boton_cruce, #lista_boton_mutacion{
+    text-decoration: none;
+    list-style-type: none;
+}
+/*
+#lista_boton_seleccion{
+    
+}*/
+
+#lista_boton_cruce{
+    
+    margin-left:180px;
+}
+
+#lista_boton_mutacion{
+    margin-left: 340px;
+}
+
+@media screen and (min-width: 300px) and (max-width:1000px) {
+    
+}
+
+@media screen and (min-width: 750px) and (max-width:1400px) {
+    
+}
