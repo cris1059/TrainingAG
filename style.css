@@ -127,10 +127,122 @@ td {
 }
 
 
-@media screen and (min-width: 300px) and (max-width:1000px) {
+#primerdiv{
+    background-color: antiquewhite;
+    flex: 25px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 40px;
+}
+#titulo{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 3rem;
+    background-color: antiquewhite;
+}
+#listacontenido{
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    gap: 100px;
+}
+#lista_boton_seleccion, #lista_boton_cruce, #lista_boton_mutacion{
+    text-decoration: none;
+    list-style-type: none;
     
 }
 
-@media screen and (min-width: 750px) and (max-width:1400px) {
-    
+@media screen and (min-width: 300px) and (max-width: 1000px) {
+    body {
+        font-size: 14px; 
+        padding: 10px; 
+    }
+
+    main {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    #title_first {
+        font-size: 20px; 
+    }
+
+    .min, .fx label, .encuadre, .encuadre__cuadro {
+        width: 100%;  
+        margin-bottom: 10px;
+    }
+
+    input[type="file"], button {
+        width: 100%; 
+        margin-bottom: 10px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .window {
+        width: 90%; 
+    }
+
+    #primerdiv {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #titulo {
+        font-size: 24px; 
+    }
+
+    #lista_boton_seleccion, #lista_boton_cruce, #lista_boton_mutacion {
+        width: 60%; 
+    }
+}
+
+@media screen and (min-width: 750px) and (max-width: 1400px) {
+    body {
+        font-size: 16px; 
+        padding: 20px; 
+    }
+
+    main {
+        flex-direction: row; 
+        justify-content: space-between;
+    }
+
+    #title_first {
+        font-size: 28px; 
+    }
+
+    .min, .fx label, .encuadre, .encuadre__cuadro {
+        width: 45%; 
+    }
+
+    input[type="file"], button {
+        width: auto; 
+    }
+
+    table {
+        width: 80%; 
+    }
+
+    .window {
+        width: 60%; 
+    }
+
+    #primerdiv {
+        display: flex;
+        flex-direction: row;  
+        justify-content: space-between;
+    }
+
+    #titulo {
+        font-size: 30px; 
+    }
+
+    #lista_boton_seleccion, #lista_boton_cruce, #lista_boton_mutacion {
+        width: 20%; 
+    }
 }
