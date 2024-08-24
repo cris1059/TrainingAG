@@ -17,7 +17,14 @@ function clicks(event) {
     if(event.target && event.target.id == 'minmax') addminmax();
     if(event.target && event.target.id == 'addfuncion') addfuncion();
     if(event.target && event.target.id == 'entrada_file') loadFile();
+    if(event.target && event.target.id == 'instructions') mostrarInstructions();
     
+}
+
+
+function mostrarInstructions() {
+    const dialog = document.querySelector('dialog');
+    dialog.setAttribute('open', '');
 }
 
 function addBinary() {
@@ -45,7 +52,8 @@ function addBinary() {
                     } else if(file != undefined){
 
                         loadFile(file);
-                        incrustado();
+                        console.log("Salio");
+                        setTimeout(incrustado, 10000);
                         
                     } else{
                             alert("Ingresa un Dato Binario o verifica si ya ingresaste la funcion f(x)")
@@ -127,32 +135,42 @@ function loadFile(file) {
         reader.onload = function(e) {
             const content = e.target.result;
             binarios = content.split('\n').map(row => row.split(','));
-            console.log(binarios); 
-            let seleccion = document.getElementById('file_inputid');
-            seleccion.textContent = 'Cargado';
-            for (let i = 0; i < binarios.length; i++) {
-                let binario = binarios[i];
-                console.log(binario);
-                let dec = binarioADecimal(binario);
-                let tbody = document.querySelector('tbody');
-                let r = calculateReal(dec, binario);
-                let a = calculateAdaptad(r);
+            for (let i = 0; i < binarios[0].length; i++) {
+                let bin = binarios[0][i];
+                let tbody = document.getElementById('insert');
+                console.log(bin);
                 tbody.innerHTML += `
-            <tr>
-                <td>${binario}</td>
-                <td>${dec}</td>
-                <td>${r}</td>
-                <td>${a}</td>
-            </tr>`;
-                
+                        <tr>
+                            <td>${bin}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>`;
             }
-            
-
         };
         reader.readAsText(file);
+        let seleccion = document.getElementById('file_inputid');
+            seleccion.textContent = 'Cargado';
     } 
+    
+    
 }
 
 function incrustado() {
-    
+    for (let i = 0; i < binarios.length; i++) {
+        let binario = binarios[i];
+        let dec = binarioADecimal(binario);
+        let tbody = document.querySelector('tbody');
+        let r = calculateReal(dec, binario);
+        let a = calculateAdaptad(r);
+        tbody.innerHTML += `
+    <tr>
+        <td>${binario}</td>
+        <td>${dec}</td>
+        <td>${r}</td>
+        <td>${a}</td>
+    </tr>`;
+        
+    }
 }
+
