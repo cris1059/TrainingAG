@@ -124,8 +124,11 @@ td {
     width: 800px;
     border-radius: 5px;
     box-shadow: 0 0 10px #000;
+    box-sizing: border-box;
+    position: relative;
 }
 
+<<<<<<< HEAD
 
 #primerdiv{
     background-color: antiquewhite;
@@ -245,4 +248,20 @@ td {
     #lista_boton_seleccion, #lista_boton_cruce, #lista_boton_mutacion {
         width: 20%; 
     }
+=======
+#instructions{
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+}
+
+
+.x{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 2px solid #000;
+    border-top: 0 solid #fff;
+    border-right: 0;
+>>>>>>> fe435a9 (todo)
 }
