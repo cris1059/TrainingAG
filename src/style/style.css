@@ -1,0 +1,141 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #F4E3B6;
+}
+
+h1{
+    text-align: center;
+}
+
+h3, h2{
+    margin: 0;
+}
+
+input[type="file"]{
+    display: none;
+}
+
+input{
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 0 0 10px #000;
+}
+
+select{
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 0 0 7px #000;
+    font-size: 1rem;
+}
+
+.btn{
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #000;
+    margin-left: 4px;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 900px;
+    min-height: 150px;
+    background-color: #3FCCDA;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    box-sizing: border-box;
+}
+
+.options{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.options-section-2{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.options-section-2 label{
+    color: #fff;
+    font-size: 1.2rem;
+    text-shadow: 0 1px 10px #000;
+}
+
+.padding-20{
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.parametros{
+    display: flex;
+    flex-direction: column;
+}
+
+.parametros-section-2{
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.fondo{
+    width: 100vw;
+    height: 100vh;
+    background-color: #0006;
+    position: absolute;
+    top: 0;
+
+}
+
+.fondo .content{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #3FCCDA;
+    padding: 10px 20px;
+    width: 700px;
+    height: 200px;
+    border-radius: 8px;
+    margin: auto;
+    margin-top: 50px;
+    box-sizing: border-box;
+
+}
+
+.BD{
+    display: flex;
+    justify-content: space-around;
+}
+
+.close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top-right-radius: 5px;
+    border: 0;
+    background-color: #fff;
+}
+
+.population{
+    margin: auto;
+}
+
+.inactive{
+    display: none;
+}
+
+.modal{
+    display: flex;
+}

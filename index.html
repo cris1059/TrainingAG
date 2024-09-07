@@ -3,9 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./src/style/style.css">
+    <title>Algoritmos Geneticos | Main Menu</title>
 </head>
 <body>
     <!--v2.0.0-->
+    <h1>ALGORITMOS GENETICODS</h1>
+    <main class="main">
+        <div class="options padding-20">
+            <h3>Metodos</h3>
+            <div class="options-section-2">
+                <label for="seleccion">Seleccion</label>
+                <select name="" id="seleccion">
+                    <option value="">Selecciona uno</option>
+                    <option value="">Ruleta</option>
+                    <option value="">Torneo</option>
+                    <option value="">Ranking</option>
+                    <option value="">Truncamiento</option>
+                    <option value="">Estocastica Universal</option>
+                </select>
+
+                <label for="cruce">Cruce</label>
+                <select name="" id="cruce">
+                    <option value="">Selecciona uno</option>
+                    <option value="">Dos Puntos</option>
+                    <option value="">Uniforme</option>
+                    <option value="">Aritmetico</option>
+                </select>
+
+                <label for="mutacion">Mutacion</label>
+                <select name="" id="mutacion">
+                    <option value="">Selecciona uno</option>
+                    <option value="">Simple</option>
+                    <option value="">Uniforme</option>
+                    <option value="">No Uniforme</option>
+                    <option value="">Gaussiana</option>
+                </select>
+            </div>
+        </div>
+        <div class="parametros padding-20">
+            <h3>Parametros De Inicializacion</h3>
+            <div class="parametros-section-2">
+                <div class="parametros-function">
+                    <label for="function">Funcion Objetivo</label>
+                    <input id="function" type="text" placeholder="3*sin(x)+2*x^2-5">
+                </div>
+                <div class="parametros-range">
+                    <label for="range">Rango de Busqueda</label>
+                    <input id="range" type="number" placeholder="1,12">
+                </div>
+            </div>
+        </div>
+        <div class="population">
+            <button id="population" class="btn">Cargar Poblacion</button>
+        </div>
+    </main>
+
+
+
+
+
+    <div id="tab-pane-population" class="inactive fondo">
+        <div class="content">
+            <h2>Poblacion</h2>
+            <p>Puedes Cargar tu BD (Base de Datos) o en su defecto, agregar individualmente cada individuo de una poblacion</p>
+            <div class="BD">
+                <div id="file">
+                    <label class="btn" for="loadfile">Cargar BD</label>
+                    <input id="loadfile" type="file">
+                </div>
+                <div id="population-single">
+                    <input type="text" placeholder="1010101010101">
+                    <button class="btn">Agregar a Poblacion</button>
+                </div>
+            </div>
+            <button id="close" class="close">x</button>
+        </div>
+    </div>
+
+
+    <script src="./src/js/script.js"></script>
 </body>
 </html>
