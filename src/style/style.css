@@ -48,12 +48,12 @@ select{
     flex-direction: column;
     margin: auto;
     max-width: 900px;
-    min-height: 150px;
     background-color: #3FCCDA;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px #000;
     box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
 .options{
@@ -126,10 +126,24 @@ select{
     border-top-right-radius: 5px;
     border: 0;
     background-color: #fff;
+    cursor: pointer;
 }
 
 .population{
     margin: auto;
+}
+
+table{
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 7px #000;
+    text-align: center;
+    width: 300px;
+}
+
+th, td{
+    border: 1px solid #000;
+    border-radius: 5px;
 }
 
 .inactive{
@@ -138,4 +152,8 @@ select{
 
 .modal{
     display: flex;
+}
+
+.btn-active{
+    display: inline-block;
 }

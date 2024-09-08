@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/style/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
     <title>Algoritmos Geneticos | Main Menu</title>
 </head>
 <body>
@@ -56,21 +58,36 @@
         </div>
         <div class="population">
             <button id="population" class="btn">Cargar Poblacion</button>
+            <button id="generate" class="btn inactive">Generar</button>
         </div>
     </main>
 
+    <!--Carga de los datos-->
+    <div class="data-loaded main inactive" id="data-loaded-complete">
+        <h2>Datos cargados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Cromosoma</th>
+                </tr>
+            </thead>
+            <tbody class="no-data" id="data">
+                
+            </tbody>
+        </table>
+    </div>
 
-
-
-
+    <!--MODAL (VENTANA FLOTANTE) PARA AGREGAR POBLACION-->
     <div id="tab-pane-population" class="inactive fondo">
         <div class="content">
             <h2>Poblacion</h2>
-            <p>Puedes Cargar tu BD (Base de Datos) o en su defecto, agregar individualmente cada individuo de una poblacion</p>
+            <p>Puedes Cargar tu BD (Base de Datos en .xlsx) o en su defecto, agregar individualmente cada individuo de una poblacion</p>
             <div class="BD">
                 <div id="file">
-                    <label class="btn" for="loadfile">Cargar BD</label>
-                    <input id="loadfile" type="file">
+                    <label class="btn" for="loadfile">Seleccionar BD</label>
+                    <input class="change" id="loadfile" type="file">
+                    <button id="loadfile-active" class="inactive btn">Cargar BD</button>
                 </div>
                 <div id="population-single">
                     <input type="text" placeholder="1010101010101">
