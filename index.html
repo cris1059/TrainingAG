@@ -17,32 +17,47 @@
             <div class="options-section-2">
                 <label for="seleccion">Seleccion</label>
                 <select name="" id="seleccion">
-                    <option value="">Selecciona uno</option>
-                    <option value="">Ruleta</option>
-                    <option value="">Torneo</option>
-                    <option value="">Ranking</option>
-                    <option value="">Truncamiento</option>
-                    <option value="">Estocastica Universal</option>
+                    <option value="-1">Selecciona uno</option>
+                    <option value="ruleta">Ruleta</option>
+                    <option value="torneo">Torneo</option>
+                    <option value="ranking">Ranking</option>
+                    <option value="truncamiento">Truncamiento</option>
+                    <option value="entocastica">Estocastica Universal</option>
                 </select>
 
                 <label for="cruce">Cruce</label>
                 <select name="" id="cruce">
-                    <option value="">Selecciona uno</option>
-                    <option value="">Dos Puntos</option>
-                    <option value="">Uniforme</option>
-                    <option value="">Aritmetico</option>
+                    <option value="-1">Selecciona uno</option>
+                    <option value="unpunto">Un Punto</option>
+                    <option value="dospuntos">Dos Puntos</option>
+                    <option value="uniforme">Uniforme</option>
+                    <option value="aritmetico">Aritmetico</option>
                 </select>
 
                 <label for="mutacion">Mutacion</label>
                 <select name="" id="mutacion">
-                    <option value="">Selecciona uno</option>
-                    <option value="">Simple</option>
-                    <option value="">Uniforme</option>
-                    <option value="">No Uniforme</option>
-                    <option value="">Gaussiana</option>
+                    <option value="-1">Selecciona uno</option>
+                    <option value="simple">Simple</option>
+                    <option value="uniforme">Uniforme</option>
+                    <option value="nouniforme">No Uniforme</option>
+                    <option value="gaussiana">Gaussiana</option>
                 </select>
             </div>
         </div>
+        <div class="padding-20 conv">
+            <h3>Convergencia</h3><br>
+            <div class="row">
+                <div>
+                    <label for="tasa_de_cruce">Tasa De Cruce (%)</label>
+                    <input id="tasa_de_cruce" type="text">
+                </div>
+                <div>
+                    <label for="tasa_de_mutacion">Tasa De Mutacion (%)</label>
+                    <input id="tasa_de_mutacion" type="text">
+                </div>
+            </div>
+        </div>
+
         <div class="parametros padding-20">
             <h3>Parametros De Inicializacion</h3>
             <div class="parametros-section-2">
@@ -52,7 +67,7 @@
                 </div>
                 <div class="parametros-range">
                     <label for="range">Rango de Busqueda</label>
-                    <input id="range" type="number" placeholder="1,12">
+                    <input id="range" type="text" placeholder="1,12">
                 </div>
             </div>
         </div>
@@ -63,7 +78,8 @@
     </main>
 
     <!--Carga de los datos-->
-    <div class="data-loaded main inactive" id="data-loaded-complete">
+    <div class="data-loaded main inactive" id="data-loaded-complete"> 
+    <!--<div class="data-loaded main" id="data-loaded-complete"></div>-->
         <h2>Datos cargados</h2>
         <table>
             <thead>
@@ -76,6 +92,7 @@
                 
             </tbody>
         </table>
+        <button class="btn" id="generate-calculos">generar</button>
     </div>
 
     <!--MODAL (VENTANA FLOTANTE) PARA AGREGAR POBLACION-->
@@ -90,15 +107,15 @@
                     <button id="loadfile-active" class="inactive btn">Cargar BD</button>
                 </div>
                 <div id="population-single">
-                    <input type="text" placeholder="1010101010101">
-                    <button class="btn">Agregar a Poblacion</button>
+                    <input id="cromosoma-input" type="text" placeholder="1010101010101">
+                    <button id="population-single-btn" class="btn">Agregar a Poblacion</button>
                 </div>
             </div>
             <button id="close" class="close">x</button>
         </div>
     </div>
 
-
-    <script src="./src/js/script.js"></script>
+    <script src="./src/js/tools-scripts.js"></script>
+    <script src="./src/js/script-general.js"></script>
 </body>
 </html>
