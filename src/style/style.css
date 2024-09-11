@@ -35,6 +35,7 @@ table{
     box-shadow: 0 0 7px #000;
     text-align: center;
     width: 300px;
+    background-color: #fff;
 }
 
 th, td{
@@ -163,6 +164,16 @@ th, td{
 .conv{
     display: flex;
     flex-direction: column;
+}
+
+.roww{
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.afect{
+    background-color: red;
+    color: #fff;
 }
 
 .inactive{

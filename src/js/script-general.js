@@ -5,6 +5,7 @@
 @Colaboradores: Brandon Lenny Rodriguez Arrieta
                 Iniestra Sanchez Eduardo
                 Romero Tapia Alberto Angel
+                Bautista Alvarado Carlos Santiago
 */
 
 document.addEventListener('DOMContentLoaded', ()=> document.querySelector('body').addEventListener('click', listener));
@@ -63,7 +64,7 @@ function writetable() {
             let element = jsonData[i].Cromosoma;
             dataBinary.push(element);
             data.innerHTML += `
-                <tr>
+                <tr class = "roww">
                     <td>${(dataBinary.length)}</td>
                     <td>${element}</td>
                 </tr>`;
@@ -83,7 +84,7 @@ function addPopulationSingle(){
     let element = document.getElementById('cromosoma-input').value;
     dataBinary.push(element);
     data.innerHTML += `
-                <tr>
+                <tr class = "roww">
                     <td>${(dataBinary.length)}</td>
                     <td>${element}</td>
                 </tr>`;
@@ -122,6 +123,8 @@ function procesar() {
     }
 }
 
+
+//NORMALIZAMOS LOS DATOS EN EL RANGO DADO POR EL USUARIO
 function normalizedData() {
     for (let i = 0; i < dataBinary.length; i++) {
         let cromo = dataBinary[i];
@@ -140,19 +143,26 @@ function normalizedData() {
 }
 
 
-function metodo(metodo, cruce, mutacion) {
+//SE EJECUTARAN LOS METODOS SEGUN LO SELECCIONADO
+function metodo(seleccion, cruce, mutacion) {
     //METODOS
-    if(metodo == 'ruleta') ruleta();
+    let s, c, m;
+    //SELECCION
+    if(seleccion == 'ruleta') s = ruleta();
 
     //CRUCE
-    if(cruce == 'unpunto') unpunto();
+    if(cruce == 'unpunto') c = unpunto();
 
     //MUTACION
-    if(mutacion == 'simple') mutasionSimple();
+    if(mutacion == 'simple') m = mutasionSimple();
+
+
+    //ESCRITURA DE LOS RESULTADOS
+    if(s && c && m) writeResult();
 }
 
 
-//METODO RULETA
+//METODO SELECCION RULETA
 function ruleta() {
 
     for (let i = 0; i < dataAdaptacion.length; i++) {
@@ -177,8 +187,10 @@ function ruleta() {
     
     for (let i = 0; i < cromo_parejas.length; i++) indices.push(buscarEnArreglo(dataBinary, cromo_parejas[i]));
 
-}
+return true;}
 
+
+//METODO CRUCE UN PUNTO
 function unpunto() {
     for (let i = 0; i < parejas.length; i++) {
         let r = numeroAleatorio(0, parejas[i][0].length);
@@ -191,9 +203,11 @@ function unpunto() {
 
         dataBinary[indices[i++]] = parte1cromo1+parte2cromo2;
         dataBinary[indices[i++]] = parte2cromo1+parte1cromo2;
-    }
+    }return true;
 }
 
+
+//METODO MUTACION SIMPLE
 function mutasionSimple() {
     console.log(indices);
     for (let i = 0; i < indices.length; i++) {
@@ -211,16 +225,36 @@ function mutasionSimple() {
                     cond = false;
                 }
             }
-            let carac;
-            if(cromosoma[r] == '1') carac = '0';
-            else carac = '1';
-            console.log('--------------------');
-            console.log(dataBinary[indices[i]]);
+            console.log("r = "+r);
+            let carac = '1';
+            console.log(dataBinary[indices[i]][r]);
+            if(dataBinary[indices[i]][r] == '1') carac = '0';
             dataBinary[indices[i]] = sustituirCaracterPorIndice(dataBinary[indices[i]], r, carac);   
-            console.log(dataBinary[indices[i]]);
-            console.log(r);
+            console.log(dataBinary[indices[i]][r]);
             
         }
-        
+        console.log(dataBinary[indices[i]]);
     }
+return true;}
+
+function writeResult() {
+    let data = document.getElementById('data_result');
+    console.log(data);
+        for (let i = 0; i < dataBinary.length; i++) {
+            let element = dataBinary[i];
+            if(indices.includes(i)){
+                data.innerHTML += `
+                <tr class = "afect">
+                    <td>${(i+1)}</td>
+                    <td>${element}</td>
+                </tr>`;
+            } else {
+                data.innerHTML += `
+                <tr class = "roww">
+                    <td>${(i+1)}</td>
+                    <td>${element}</td>
+                </tr>`;
+            }
+            
+        }
 }

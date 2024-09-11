@@ -5,6 +5,7 @@
 @Colaboradores: Brandon Lenny Rodriguez Arrieta
                 Iniestra Sanchez Eduardo
                 Romero Tapia Alberto Angel
+                Bautista Alvarado Carlos Santiago
 */
 
 function binaryOfDecimal(binario) {
