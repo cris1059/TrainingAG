@@ -1,5 +1,7 @@
 /* 
-@Autor: Cristopher Camacho Duran
+@Autor Princiapl: Cristopher Camacho Duran
+@File: script-general.js
+@Path: .\src\js\script-general.js
 @App: Training Algoritmos Geneticos
 
 @Colaboradores: Brandon Lenny Rodriguez Arrieta
@@ -47,8 +49,8 @@ function loadfile(){
         let data = new Uint8Array(e.target.result);
         let workbook = XLSX.read(data, { type: 'array' });
 
-        let firstSheet = workbook.Sheets[workbook.SheetNames[0]]; // Primera hoja
-        jsonData = XLSX.utils.sheet_to_json(firstSheet); // Convierte la hoja a JSON
+        let firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+        jsonData = XLSX.utils.sheet_to_json(firstSheet); 
         writetable();
     };
 
@@ -149,94 +151,29 @@ function metodo(seleccion, cruce, mutacion) {
     let s, c, m;
     //SELECCION
     if(seleccion == 'ruleta') s = ruleta();
+    if(seleccion == 'torneo') s = torneo();
+    if(seleccion == 'ranking') s = ranking();
+    if(seleccion == 'truncamiento') alert("Oh Oh, Truncamiento sigue en pruebas");  //s = truncamiento();
+    if(seleccion == 'entocastica') s = estocasticoUniversal();
 
     //CRUCE
     if(cruce == 'unpunto') c = unpunto();
+    if(cruce == 'dospuntos') c = dospuntos();
+    if(cruce == 'uniforme') c = cruceUniforme();
+    if(cruce == 'aritmetico') c = cruceAritmetico();
 
     //MUTACION
     if(mutacion == 'simple') m = mutasionSimple();
+    if(mutacion == 'uniforme') m = mutacionUniforme();
+    if(mutacion == 'nouniforme') m = mutacionNoUniforme();
+    if(mutacion == 'gaussiana') m = mutacionGaussiana();
 
 
     //ESCRITURA DE LOS RESULTADOS
     if(s && c && m) writeResult();
 }
 
-
-//METODO SELECCION RULETA
-function ruleta() {
-
-    for (let i = 0; i < dataAdaptacion.length; i++) {
-        let adaptacion = dataAdaptacion[i]/adaptacion_total;
-        let porcen = parseInt(adaptacion*100);
-
-        for (let j = 0; j < porcen; j++) {
-            dataAdaptacionPorcen.push(dataBinary[i]);      
-        }
-    }
-
-    let ncromosomas = (tcruce*dataBinary.length)/100;
-    if (ncromosomas > 1.6 && ncromosomas < 2) ncromosomas = 2; 
-    else if(!ncromosomas < 1.6){
-        ncromosomas = Math.floor(ncromosomas);
-        if(ncromosomas % 2 != 0) ncromosomas++;
-    }
-
-    for (let i = 0; i < ncromosomas; i++) cromo_parejas.push(dataAdaptacionPorcen[numeroAleatorio(0, dataAdaptacionPorcen.length)]);
-
-    for (let i = 0, j = 0; i < cromo_parejas.length; i+= 2, j++) parejas[j] = [cromo_parejas[i], cromo_parejas[i+1]];
-    
-    for (let i = 0; i < cromo_parejas.length; i++) indices.push(buscarEnArreglo(dataBinary, cromo_parejas[i]));
-
-return true;}
-
-
-//METODO CRUCE UN PUNTO
-function unpunto() {
-    for (let i = 0; i < parejas.length; i++) {
-        let r = numeroAleatorio(0, parejas[i][0].length);
-
-        let parte1cromo1 = parejas[i][0].slice(0, r);
-        let parte2cromo1 = parejas[i][0].slice(r);
-
-        let parte1cromo2 = parejas[i][1].slice(0, r);
-        let parte2cromo2 = parejas[i][1].slice(r);
-
-        dataBinary[indices[i++]] = parte1cromo1+parte2cromo2;
-        dataBinary[indices[i++]] = parte2cromo1+parte1cromo2;
-    }return true;
-}
-
-
-//METODO MUTACION SIMPLE
-function mutasionSimple() {
-    console.log(indices);
-    for (let i = 0; i < indices.length; i++) {
-        let cromosoma = dataBinary[indices[i]];
-        let por = Math.round((tmutacion*cromosoma.length)/100);
-        console.log(indices[i]);
-        let indiceremplazo = [];
-        for (let j = 0; j < por; j++) {
-            
-            let cond = true, r;
-            while (cond) {
-                r = numeroAleatorio(0, cromosoma.length-1);
-                if(!indiceremplazo.includes(r)) {
-                    indiceremplazo.push(r);
-                    cond = false;
-                }
-            }
-            console.log("r = "+r);
-            let carac = '1';
-            console.log(dataBinary[indices[i]][r]);
-            if(dataBinary[indices[i]][r] == '1') carac = '0';
-            dataBinary[indices[i]] = sustituirCaracterPorIndice(dataBinary[indices[i]], r, carac);   
-            console.log(dataBinary[indices[i]][r]);
-            
-        }
-        console.log(dataBinary[indices[i]]);
-    }
-return true;}
-
+//METODO ESCRITURA DE RESULTADOS EN PARTE GRAFICA
 function writeResult() {
     let data = document.getElementById('data_result');
     console.log(data);
